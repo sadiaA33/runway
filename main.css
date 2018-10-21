@@ -1,0 +1,107 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+
+.grass, .sky, .road {
+    position: relative;
+}
+
+.sky{
+    height: 30%;
+    background: skyblue;
+}
+.cloud{
+    position: relative;
+}
+.cloud:nth-child(1){
+    width: 200px;
+    top: 20px;
+    opacity: 0.5;
+
+    animation: wind 80s linear infinite reverse;
+}
+.cloud:nth-child(2){
+    width: 300px;
+    top: 0;
+    animation: wind 50s linear infinite reverse;
+}
+
+
+.grass{
+    height: 15%;
+    background: seagreen;
+}
+
+.road{
+    height: 20%;
+    background: dimgrey;
+    box-sizing: border-box;
+    border-top: 10px solid grey;
+    border-bottom: 10px solid grey;
+    width: 100%;
+}
+    .lines{
+        box-sizing: border-box;
+        border: 5px dashed #fff;
+        height: 0px;
+        width: 100%;
+        position: absolute;
+        top: 55%;
+    }
+
+.benji{
+    position: absolute;
+    left:0px;
+    top:-70px;
+    
+    animation: ride 5s ease infinite normal both;
+}
+.jane{
+    position: absolute;
+    left:0px;
+    top:-70px;
+    /*transform: rotateY(-180deg);*/
+    
+    animation-name: ride1;
+    
+    animation-duration: 5s;
+    animation-fill-mode:both;
+    animation-direction: normal;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    /*animation: ride1 5s ease-out 1s infinite linear both,jump 0.3 1.2 ease;*/
+    
+}
+@keyframes ride{
+    0%{transform: translate(0px,-60px)}
+    25%{transform: translate(60px,-90px)}
+    50%{transform: translate(90px,-150px)}
+    70%{transform: translate(150px,-200px)}
+    100%{transform: translate(200px,-400px)}
+   /* from{transform: translateX(0px)} 
+    to{transform: translateX(1500px)};*/
+}
+
+
+@keyframes ride1{
+   /*from{transform: translateY(500px)} 
+    to{transform: translateX(0px)}*/
+    0%{transform: translate(1500px,-400px)}
+    25%{transform: translate(1200px,-300px)}
+    50%{transform: translate(1100px,-200px)}
+    75%{transform: translate(1000px,-100px)}
+    100%{transform: translate(800px,50px)}
+    
+}
+@keyframes jump{
+    0%{top: -70px}
+    50%{top:-200px}
+    100%{top:10px}
+}
+@keyframes wind{
+    from{left: -300px}
+    to{left:100%}
+}
